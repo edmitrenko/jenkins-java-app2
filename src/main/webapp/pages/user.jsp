@@ -6,14 +6,14 @@
 <meta charset="ISO-8859-1">
 <style>
    body {
-    background: #808080; /* Öâåò ôîíà */
+    background: #9a9aef; /* Öâåò ôîíà */
     color: #fc0; /* Öâåò òåêñòà */
    }
 </style>
-<title>Welcome to Final Project</title>
+<title>EPAM_Final_Project</title>
 </head>
 <body>
-  	  <h1 align="center"> EPAM Final Project  </h1>
+  	  <h1 align="center"> Welcome to EPAM Final Project  </h1>
   	  
 
 </body>
