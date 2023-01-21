@@ -3,10 +3,7 @@ pipeline{
   
   stages{
      stage("Build"){
-       steps{
-	    // Get some code from a GitHub repository
-            git 'https://github.com/edmitrenko/jenkins-java-app2.git/'
-            
+       steps{       
             // Run Maven on a Unix agent
             sh "./mvnw clean install"
             }
