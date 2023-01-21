@@ -6,7 +6,7 @@
 <meta charset="ISO-8859-1">
 <style>
    body {
-    background: #333; /* Öâåò ôîíà */
+    background: #eedfac; /* Öâåò ôîíà */
     color: #fc0; /* Öâåò òåêñòà */
    }
 </style>
