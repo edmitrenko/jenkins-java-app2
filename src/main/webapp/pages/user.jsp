@@ -13,8 +13,7 @@
 <title>Welcome to Final Project</title>
 </head>
 <body>
-Welcome ${username}
-  	  <h1 style="color:blue;" align="center"> EPAM Final Project  </h1>
+  	  <h1 align="center"> EPAM Final Project  </h1>
   	  
 
 </body>
