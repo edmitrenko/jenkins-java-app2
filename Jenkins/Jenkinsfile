@@ -1,10 +1,11 @@
 pipeline{
-  agent any
+  agent {label 'java'}
   
   stages{
      stage("Build"){
        steps{       
-            // Run Maven on a Unix agent
+            cleanWs()
+	    // Run Maven on a Unix agent
             sh "./mvnw clean install"
             }
      }
@@ -12,11 +13,6 @@ pipeline{
      stage("Deploy"){
        steps{
           deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://ec2-13-53-175-19.eu-north-1.compute.amazonaws.com:8080')], contextPath: null, onFailure: false, war: '**/*.war'
-       }
-       post { 
-        always { 
-            cleanWs()
-        }
        }
      }
   }
