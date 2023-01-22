@@ -7,7 +7,7 @@
 <style>
    body {
     background: #9a9aef; /* Цвет фона */
-    color: #fc0; /* Цвет текста */
+    color: #cbbbbb; /* Цвет текста */
    }
 </style>
 <title>EPAM_Final_Project</title>
