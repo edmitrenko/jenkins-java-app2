@@ -13,11 +13,11 @@ pipeline{
        steps{
           deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://ec2-13-53-175-19.eu-north-1.compute.amazonaws.com:8080')], contextPath: null, onFailure: false, war: '**/*.war'
        }
-     }
-    post { 
+       post { 
         always { 
             cleanWs()
         }
+       }
     }
   }
 }  
