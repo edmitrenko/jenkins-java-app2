@@ -10,24 +10,15 @@ pipeline{
      }
 			
      stage("Deploy"){
-     //  steps{
-     //     deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://13.51.194.48:8080')], contextPath: null, onFailure: false, war: '**/*.war'
-     //  }
-
        steps{
-          sshagent(['tomcat-server-stokgolm']) {
-          sh """
-          scp -o StrictHostKeyChecking=no target/*.war ubuntu@13.51.194.48:/opt/tomcat/webapps
-          ssh ubuntu@13.51.194.48 /opt/tomcat/bin/shutdown.sh
-          ssh ubuntu@13.51.194.48 /opt/tomcat/bin/startup.sh
-           """
+          deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://13.51.194.48:8080')], contextPath: null, onFailure: false, war: '**/*.war'
        }
-//       post { 
-//          always { 
-//            cleanWs()
-//          }
-//       }
+
+       post { 
+          always { 
+            cleanWs()
+          }
        }
-     }  
-  }
+     }
+  }  
 }    
