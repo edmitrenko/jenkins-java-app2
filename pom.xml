@@ -13,6 +13,7 @@
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>dptweb</name>
+	<war.name>dptweb##${maven.build.timestamp}</war.name>
 	<description>DPT DevOps project for Spring Boot</description>
 
 	<properties>
