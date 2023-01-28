@@ -65,16 +65,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-war-plugin</artifactId>
-        		<version>2.3</version>
-        		<configuration>
-          		<warName>dptweb##${maven.build.timestamp}</warName>
-        </configuration>
-      </plugin>
 		</plugins>
+		 <finalName>dptweb##${maven.build.timestamp}</finalName>
 	</build>
 	<distributionManagement>
     <repository>
