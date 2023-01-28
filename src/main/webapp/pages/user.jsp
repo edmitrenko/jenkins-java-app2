@@ -13,7 +13,7 @@
 <title>EPAM_Final_Project</title>
 </head>
 <body>
-  	  <h1 align="center"> Welcome to EPAM Final Project  </h1>
+  	  <h1 align="center"> Welcome to EPAM Final Project ver1.0  </h1>
   	  
 
 </body>
