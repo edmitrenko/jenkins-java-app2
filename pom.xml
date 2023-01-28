@@ -13,7 +13,6 @@
 	<version>1.0</version>
 	<packaging>war</packaging>
 	<name>dptweb</name>
-	<war.name>dptweb##${maven.build.timestamp}</war.name>
 	<description>DPT DevOps project for Spring Boot</description>
 
 	<properties>
@@ -66,6 +65,15 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-war-plugin</artifactId>
+        		<version>2.3</version>
+        		<configuration>
+          		<warName>${artifact.id}##${maven.build.timestamp}</warName>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 	<distributionManagement>
