@@ -15,7 +15,7 @@ pipeline{
      //  }
 
        steps{
-          sshagent(['tomcat-server']) {
+          sshagent(['tomcat-server-stokgolm']) {
           sh """
           scp -o StrictHostKeyChecking=no target/*.war ubuntu@13.51.194.48:/opt/tomcat/webapps
           ssh ubuntu@13.51.194.48 /opt/tomcat/bin/shutdown.sh
