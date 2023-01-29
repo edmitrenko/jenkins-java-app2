@@ -67,26 +67,14 @@
 			</plugin>
 
 			<plugin>
-                    <groupId>org.codehaus.cargo</groupId>
-                    <artifactId>cargo-maven2-plugin</artifactId>
-                    <configuration>
-                        <container>
-                            <containerId>tomcat7x</containerId>
-                        </container>
-                        <deployables>
-                            <deployable>
-                                <properties>
-                                    <context>${project.artifactId}##${project.version}</context>
-                                </properties>
-                            </deployable>
-                        </deployables>
-                        <configuration>
-                            <properties>
-                                <cargo.servlet.port>9080</cargo.servlet.port>
-                            </properties>
-                        </configuration>
-                    </configuration>
-                </plugin>
+            	<groupId>org.apache.tomcat.maven</groupId>
+            	<artifactId>tomcat7-maven-plugin</artifactId>
+            	<version>2.2</version>
+            	<configuration>
+                	<path>/dptweb##${maven.build.timestamp}</path>
+                	<update>true</update>
+            	</configuration>
+        	</plugin>
 
 		</plugins>
 		<!-- <finalName>${project.artifactId}##${project.version}</finalName>  -->
