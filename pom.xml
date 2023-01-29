@@ -36,11 +36,7 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		
-		
-		
-		
-		
+			
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -65,34 +61,8 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-
-			<plugin>
-                    <groupId>org.codehaus.cargo</groupId>
-                    <artifactId>cargo-maven2-plugin</artifactId>
-                    <configuration>
-                        <container>
-                            <containerId>tomcat7x</containerId>
-                            <zipUrlInstaller>
-                                <url>http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.35/bin/apache-tomcat-7.0.35.zip</url>
-                            </zipUrlInstaller>
-                        </container>
-                        <deployables>
-                            <deployable>
-                                <properties>
-                                    <context>${project.artifactId}##${project.version}</context>
-                                </properties>
-                            </deployable>
-                        </deployables>
-                        <configuration>
-                            <properties>
-                                <cargo.servlet.port>9080</cargo.servlet.port>
-                            </properties>
-                        </configuration>
-                    </configuration>
-            </plugin>
-
 		</plugins>
-		<!-- <finalName>${project.artifactId}##${project.version}</finalName>  -->
+		 <finalName>${project.artifactId}##${project.version}</finalName>  
 	</build>
 	<distributionManagement>
     <repository>
