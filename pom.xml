@@ -67,13 +67,26 @@
 			</plugin>
 
 			<plugin>
-        		<groupId>org.apache.maven.plugins</groupId>
-        		<artifactId>maven-war-plugin</artifactId>
-        		<version>2.3</version>
-        		<configuration>
-          			<warName>${project.artifactId}##${project.version}.war</warName>
-        		</configuration>
-      		</plugin>
+                    <groupId>org.codehaus.cargo</groupId>
+                    <artifactId>cargo-maven2-plugin</artifactId>
+                    <configuration>
+                        <container>
+                            <containerId>tomcat7x</containerId>
+                        </container>
+                        <deployables>
+                            <deployable>
+                                <properties>
+                                    <context>${project.artifactId}##${project.version}</context>
+                                </properties>
+                            </deployable>
+                        </deployables>
+                        <configuration>
+                            <properties>
+                                <cargo.servlet.port>9080</cargo.servlet.port>
+                            </properties>
+                        </configuration>
+                    </configuration>
+                </plugin>
 
 		</plugins>
 		<!-- <finalName>${project.artifactId}##${project.version}</finalName>  -->
