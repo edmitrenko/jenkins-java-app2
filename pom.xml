@@ -71,8 +71,7 @@
             	<artifactId>tomcat7-maven-plugin</artifactId>
             	<version>2.2</version>
             	<configuration>
-                	<path>${project.artifactId}##${maven.build.timestamp}</path>
-					<url>http://localhost:8080/manager/dptweb</url>
+                	<warName>${project.artifactId}##${maven.build.timestamp}</warName>
                 	<update>true</update>
             	</configuration>
         	 </plugin>
