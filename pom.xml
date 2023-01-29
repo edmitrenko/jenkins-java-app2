@@ -72,9 +72,10 @@
             	<version>2.2</version>
             	<configuration>
                 	<path>/${project.artifactId}##${maven.build.timestamp}</path>
+					<url>http://localhost:8080/manager/dptweb</url>
                 	<update>true</update>
-            </configuration>
-        </plugin>
+            	</configuration>
+        	 </plugin>
 
 		</plugins>
 		<!-- <finalName>${project.artifactId}##${project.version}</finalName>  -->
