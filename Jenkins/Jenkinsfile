@@ -9,16 +9,25 @@ pipeline{
             }
      }
 			
-     stage("Deploy"){
+//     stage("Deploy"){
+//       steps{
+//          deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://13.53.41.132:8080')], contextPath: null, onFailure: false, war: '**/*.war'
+//       }
+      stage("Deploy"){
        steps{
-          deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://13.53.41.132:8080')], contextPath: null, onFailure: false, war: '**/*.war'
+          sshagent(['tomcat-server-stokgolm']) {
+          sh """
+          scp -o StrictHostKeyChecking=no target/*.war ubuntu@13.53.41.132:/opt/tomcat/webapps/
+          ssh ubuntu@13.53.41.132 /opt/tomcat/bin/shutdown.sh
+          ssh ubuntu@13.53.41.132 /opt/tomcat/bin/startup.sh
+           """
+          }
+       
+       post { 
+          always { 
+            cleanWs()
+          }
        }
-
- //      post { 
- //         always { 
- //           cleanWs()
- //         }
- //      }
      }
   }  
 }    
