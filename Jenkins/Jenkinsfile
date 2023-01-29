@@ -22,12 +22,12 @@ pipeline{
           ssh ubuntu@13.53.41.132 /opt/tomcat/bin/startup.sh
            """
           }
-       
+       } 
        post { 
           always { 
             cleanWs()
           }
        }
-     }
+      }     
   }  
 }    
