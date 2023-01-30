@@ -24,6 +24,12 @@ pipeline{
              scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_1}:/opt/tomcat/webapps
              """
              }
+       
+          post { 
+             always { 
+               cleanWs()
+             }
+          }
           }
         }
 
@@ -34,14 +40,14 @@ pipeline{
              scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_2}:/opt/tomcat/webapps
              """
              }
+         
+          post { 
+             always { 
+               cleanWs()
+             }
           }
-        }
-
-       post { 
-          always { 
-            cleanWs()
           }
-       }
+        } 
        }     
      }  
   }    
