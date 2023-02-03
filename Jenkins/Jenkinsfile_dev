@@ -14,22 +14,12 @@ pipeline{
             sh "./mvnw clean install"
             }
      }
-			
-//     stage("Deploy"){
-//       steps{
-//          deploy adapters: [tomcat9(credentialsId: 'jenkins-to-tomcat', path: '', url: 'http://13.53.41.132:8080')], contextPath: null, onFailure: false, war: '**/*.war'
-//       }
       stage("Deploy"){
        steps{
           sshagent(['tomcat-server-dev']) {
           sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_dev}:/opt/tomcat/webapps/"
           }
        } 
-       post { 
-          always { 
-            cleanWs()
-          }
-       }
      }     
   }  
 }    
