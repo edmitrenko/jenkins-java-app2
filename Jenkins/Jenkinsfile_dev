@@ -21,7 +21,7 @@ pipeline{
 //       }
       stage("Deploy"){
        steps{
-          sshagent(['tomcat-server-stokgolm']) {
+          sshagent(['tomcat-server-dev']) {
           sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_dev}:/opt/tomcat/webapps/"
           }
        } 
