@@ -19,7 +19,7 @@ pipeline{
        parallel{
         stage ('Deploy to Tomcat Node-1'){ 
           steps{
-             sshagent(['tomcat-server-stokgolm']) {
+             sshagent(['tomcat-server-prod']) {
              sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_1}:/opt/tomcat/webapps"
              }
        
@@ -33,7 +33,7 @@ pipeline{
 
         stage ('Deploy to Tomcat Node-2'){ 
           steps{
-             sshagent(['tomcat-server-stokgolm']) {
+             sshagent(['tomcat-server-prod']) {
              sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_2}:/opt/tomcat/webapps"
              }
          

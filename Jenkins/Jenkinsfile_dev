@@ -4,8 +4,6 @@ pipeline{
   parameters { 
      string(name: 'tomcat_dev', defaultValue: '13.39.112.180', description: 'Tomcat dev')
     } 
-
-
   
   stages{
      stage("Build"){
