@@ -12,8 +12,6 @@ pipeline{
             image 'maven:latest'
             args '-u root -v /tmp:/tmp -v $HOME/.m2:/root/.m2'
             reuseNode true
-            // executes on an executor with the label 'some-label' or 'docker'
-            //label "some-label || docker"
         }
        }
 
