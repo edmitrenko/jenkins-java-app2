@@ -2,8 +2,8 @@ pipeline{
   agent {label 'java'}
   
   parameters { 
-     string(name: 'tomcat_1', defaultValue: '16.170.205.45', description: 'Tomcat Node-1')
-     string(name: 'tomcat_2', defaultValue: '16.171.16.116', description: 'Tomcat Node-2')
+     string(name: 'tomcat_1', defaultValue: '35.181.6.154', description: 'Tomcat Node-1')
+     string(name: 'tomcat_2', defaultValue: '13.36.234.43', description: 'Tomcat Node-2')
     } 
 
 
@@ -20,7 +20,7 @@ pipeline{
         stage ('Deploy to Tomcat Node-1'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
-             sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_1}:/opt/tomcat/webapps"
+             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_1}:/opt/tomcat/webapps"
              }
        
 //          post { 
@@ -34,7 +34,7 @@ pipeline{
         stage ('Deploy to Tomcat Node-2'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
-             sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_2}:/opt/tomcat/webapps"
+             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_2}:/opt/tomcat/webapps"
              }
          
 //          post { 
