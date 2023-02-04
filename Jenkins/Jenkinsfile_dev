@@ -1,15 +1,23 @@
 pipeline{
-  agent {label 'java'}
+  agent {label 'java'}  
 
-  parameters { 
+   parameters { 
      string(name: 'tomcat_dev', defaultValue: '13.36.171.134', description: 'Tomcat dev')
     } 
   
   stages{
      stage("Build"){
+       agent {
+        docker {
+            image 'maven:latest'
+            args '-u root -v /tmp:/tmp -v $HOME/.m2:/root/.m2'
+            reuseNode true
+        }
+       }
+
        steps{       
 	    // Run Maven on a Unix agent
-            sh "./mvnw clean install"
+            sh "unset MAVEN_CONFIG && env && ./mvnw clean install"
             }
      }
       stage("Deploy"){

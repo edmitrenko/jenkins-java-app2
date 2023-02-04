@@ -9,9 +9,17 @@ pipeline{
 
   stages{
      stage("Build"){
-       steps{       
+       agent {
+        docker {
+            image 'maven:latest'
+            args '-u root -v /tmp:/tmp -v $HOME/.m2:/root/.m2'
+            reuseNode true
+        }
+       }
+       
+        steps{       
 	    // Run Maven on a Unix agent
-            sh "./mvnw clean install"
+            sh "unset MAVEN_CONFIG && env && ./mvnw clean install"
             }
      }
 			
@@ -23,11 +31,6 @@ pipeline{
              sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_1}:/opt/tomcat/webapps"
              }
        
-//          post { 
-//             always { 
-//               cleanWs()
-//             }
-//          }
           }
         }
 
@@ -37,11 +40,6 @@ pipeline{
              sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_2}:/opt/tomcat/webapps"
              }
          
-//          post { 
-//             always { 
-//               cleanWs()
-//             }
-//          }
           }
         } 
        }     
