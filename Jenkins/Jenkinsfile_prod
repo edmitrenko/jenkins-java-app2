@@ -28,7 +28,7 @@ pipeline{
         stage ('Deploy to Tomcat Node-1'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
-             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_1}:/opt/tomcat/webapps"
+             sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_1}:/opt/tomcat/webapps"
              }
        
           }
@@ -37,7 +37,7 @@ pipeline{
         stage ('Deploy to Tomcat Node-2'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
-             sh "scp -o StrictHostKeyChecking=no target/*.war ec2-user@${params.tomcat_2}:/opt/tomcat/webapps"
+             sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_2}:/opt/tomcat/webapps"
              }
          
           }
