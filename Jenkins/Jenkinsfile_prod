@@ -1,5 +1,5 @@
 pipeline{
-  agent {label 'java'}
+  agent {label 'docker'}
   
   parameters { 
      string(name: 'tomcat_1', defaultValue: '10.30.1.228', description: 'Tomcat Node-1')
