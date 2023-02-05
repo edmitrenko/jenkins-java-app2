@@ -6,14 +6,14 @@
 <meta charset="ISO-8859-1">
 <style>
    body {
-    background: #808080; /* Öâåò ôîíà */
-    color: #ebd816; /* Öâåò òåêñòà */
+    background: #745b5b; /* Öâåò ôîíà */
+    color: #2ea717; /* Öâåò òåêñòà */
    }
 </style>
 <title>EPAM_Final_Project</title>
 </head>
 <body>
-  	  <h1 align="center"> Welcome to EPAM Final Project ver 3.0  </h1>
+  	  <h1 align="center"> Welcome to EPAM Final Project ver 1.0  </h1>
   	  
 
 </body>
