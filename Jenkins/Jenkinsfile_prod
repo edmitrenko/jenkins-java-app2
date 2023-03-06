@@ -2,8 +2,8 @@ pipeline{
   agent {label 'docker'}
   
   parameters { 
-     string(name: 'tomcat_1', defaultValue: '10.30.1.228', description: 'Tomcat Node-1')
-     string(name: 'tomcat_2', defaultValue: '10.30.1.25', description: 'Tomcat Node-2')
+     string(name: 'tomcat_1', defaultValue: '10.30.1.9', description: 'Tomcat Node-1')
+     string(name: 'tomcat_2', defaultValue: '10.30.1.218', description: 'Tomcat Node-2')
     } 
 
 

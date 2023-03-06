@@ -2,7 +2,7 @@ pipeline{
   agent {label 'docker'}  
 
    parameters { 
-     string(name: 'tomcat_dev', defaultValue: '10.20.1.10', description: 'Tomcat dev')
+     string(name: 'tomcat_dev', defaultValue: '10.20.1.180', description: 'Tomcat dev')
     } 
   
   stages{
