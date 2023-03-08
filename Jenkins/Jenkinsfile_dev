@@ -6,7 +6,7 @@ pipeline{
     } 
   
   stages{
-     stage("Build"){
+     stage("BUILD"){
        agent {
         docker {
             image 'maven:latest'
@@ -20,7 +20,7 @@ pipeline{
             sh "unset MAVEN_CONFIG && env && ./mvnw clean install"
             }
      }
-      stage("Deploy"){
+      stage("DEPLOY"){
        steps{
           sshagent(['tomcat-server-dev']) {
           sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_dev}:/opt/tomcat/webapps"

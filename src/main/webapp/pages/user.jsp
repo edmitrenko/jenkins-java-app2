@@ -6,8 +6,8 @@
 <meta charset="ISO-8859-1">
 <style>
    body {
-    background: #0e0e0e; /* Öâåò ôîíà */
-    color: #2ea717; /* Öâåò òåêñòà */
+    background: grey; /* Öâåò ôîíà */
+    color: yellow; /* Öâåò òåêñòà */
    }
 </style>
 <title>EPAM_Final_Project</title>
