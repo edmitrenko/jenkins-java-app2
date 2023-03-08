@@ -8,7 +8,7 @@ pipeline{
 
 
   stages{
-     stage("Build"){
+     stage("BUILD"){
        agent {
         docker {
             image 'maven:latest'
@@ -23,9 +23,9 @@ pipeline{
             }
      }
 			
-     stage("Deploy"){
+     stage("DEPLOY"){
        parallel{
-        stage ('Deploy to Tomcat Node-1'){ 
+        stage ('DEPLOY TO TOMCAT NODE-1'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
              sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_1}:/opt/tomcat/webapps"
@@ -34,7 +34,7 @@ pipeline{
           }
         }
 
-        stage ('Deploy to Tomcat Node-2'){ 
+        stage ('DEPLOY TO TOMCAT NODE-2'){ 
           steps{
              sshagent(['tomcat-server-prod']) {
              sh "scp -o StrictHostKeyChecking=no target/*.war ubuntu@${params.tomcat_2}:/opt/tomcat/webapps"
